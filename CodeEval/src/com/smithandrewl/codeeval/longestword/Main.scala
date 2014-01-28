@@ -28,7 +28,7 @@ object Main extends App {
     val sorted  = words.sortWith((lt, rt) => lt.length() > rt.length())
     val longest = sorted(0)
 
-    return longest
+    longest
   }
 
   val result = lines.map(line => longestWord(line.split(" ").toVector))
