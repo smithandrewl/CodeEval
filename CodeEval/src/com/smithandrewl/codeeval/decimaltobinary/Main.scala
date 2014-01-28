@@ -15,7 +15,7 @@ object Main extends App {
 
      num match {
        case 0   => "0"
-       case num => iter(num, List()).mkString("")
+       case _ => iter(num, List()).mkString("")
      }
    }
 
