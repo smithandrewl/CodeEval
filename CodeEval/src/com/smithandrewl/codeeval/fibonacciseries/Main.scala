@@ -13,4 +13,6 @@ object Main extends App {
     case 1 => 1
     case _ => fibonacci(num - 1 ) + fibonacci(num - 2)
   }
+
+
 }
