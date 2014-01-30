@@ -11,6 +11,8 @@ object Main extends App {
     val titleCasedWords = words.map(word => toTitleCase(word))
 
     titleCasedWords.mkString(" ")
+
+
   }
 
   def toTitleCase(str: String): String = str match {
