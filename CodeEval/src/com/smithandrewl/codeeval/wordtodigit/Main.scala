@@ -1,4 +1,4 @@
-package com.smithandrewl.codeeval.simplesorting
+package com.smithandrewl.codeeval.wordtodigit
 
 object Main extends App {
 
