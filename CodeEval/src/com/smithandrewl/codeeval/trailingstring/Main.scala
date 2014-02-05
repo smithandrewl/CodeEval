@@ -6,6 +6,7 @@ object Main extends  App {
     val parts = line.split(",")
     endsWith(parts(0), parts(1))
   }
+
   def endsWith(str: String, tail: String): Int = {
     if (str.endsWith(tail)) 1 else 0
   }
