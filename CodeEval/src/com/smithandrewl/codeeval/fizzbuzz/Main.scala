@@ -5,7 +5,7 @@ object Main extends App {
   val lines  = source.getLines().filter(_.length > 0)
 
   val result = lines.map(line => {
-    val params = line.split(" ").toList.map(_.toInt)
+    val params = line.split(" ").map(_.toInt)
 
     fizzBuzz(params(0), params(1), params(2)).mkString(" ")
     
