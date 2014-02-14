@@ -4,16 +4,16 @@ import scala.annotation.tailrec
 
 object Main extends App {
 
-  def digits(num: Int): List[Byte] = {
+  def sumOfDigits(num: Int): Int = {
     @tailrec
-    def iter(num: Int, acc: List[Byte]): List[Byte] = num match {
+    def iter(num: Int, acc: Int): Int = num match {
       case 0 => acc
-      case _ => iter(num / 10, (num % 10).toByte :: acc)
+      case _ => iter(num / 10, (num % 10) + acc)
     }
 
     num match {
-      case 0 => List[Byte](0x0)
-      case _ => iter(num, List())
+      case 0 => 0
+      case _ => iter(num, 0)
     }
   }
 
@@ -21,7 +21,7 @@ object Main extends App {
   val lines   = source.getLines().filter(_.length > 0)
 
   val numbers = lines.map(_.toInt)
-  val res = numbers.map(digits(_).sum)
+  val res = numbers.map(sumOfDigits)
 
-  print(res.mkString("\n"))
+  print(res)
 }
