@@ -25,7 +25,7 @@ object Main extends App {
       str.toInt
       true
     } catch {
-      case _ => false
+      case _:Throwable => false
     }
   }
 
