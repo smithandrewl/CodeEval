@@ -17,6 +17,6 @@ object Main extends App {
     digits.mkString("")
   }
 
-  print(lines.map(processLine).mkString("\n"))
+  lines.map(processLine).foreach(println)
 
 }
