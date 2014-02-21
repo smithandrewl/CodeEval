@@ -13,15 +13,14 @@ object Main extends App {
     def iter(braces: List[Brace], acc: List[Brace]): Boolean =  {
       braces match {
         case List() if !acc.isEmpty => false
-        case List() => true
-        case head :: tail => head match {
-          case Open(x) => iter(tail, Open(x) :: acc)
+        case List()                 => true
+        case head :: tail           => head match {
+          case Open(x)  => iter(tail, Open(x) :: acc)
           case Close(x) => {
             if (acc.isEmpty) false
             else acc.head match {
               case Open(y) if x == y => iter(tail, acc.tail)
-              case Open(_) => false
-              case Close(_) => false
+              case _ => false
             }
           }
         }
@@ -36,14 +35,14 @@ object Main extends App {
   def processLine(line:String): String = {
     val chars = line.toCharArray.toList
 
-    val braces = chars.map(chr => chr match {
+    val braces = chars.map {
       case '(' => Open('(')
       case '[' => Open('[')
       case '{' => Open('{')
       case ')' => Close('(')
       case ']' => Close('[')
       case '}' => Close('{')
-    })
+    }
 
     if(isValid(braces.toList)) "True"
     else "False"
