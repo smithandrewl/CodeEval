@@ -15,7 +15,7 @@ object Main extends App {
 
   def primes(num: Int): IndexedSeq[Int] = {
     for {
-      current <- 2 to num
+      current <- 2 until num
       if isPrime(current)
     } yield current
   }
