@@ -22,5 +22,5 @@ object Main extends App {
 
   val numbers = lines.map(_.toInt)
 
-  print(numbers.map(primes(_).mkString(",")).mkString("\n"))
+  numbers.map(primes(_).mkString(",")).foreach(println)
 }

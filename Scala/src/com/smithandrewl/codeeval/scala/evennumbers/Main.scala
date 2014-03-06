@@ -28,7 +28,5 @@ object Main extends App {
   val numbers   = lines.map(line => line.toInt)
   val evenOrOdd = numbers.map(num => if(num % 2 == 0) 1 else 0)
 
-  val result = evenOrOdd.mkString("\n")
-
-  print(s"$result")
+  evenOrOdd.foreach(println)
 }
