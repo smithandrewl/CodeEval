@@ -8,7 +8,7 @@ object Main extends App {
 
   val res = lines.map(_.toInt).map(fibonacci)
 
-  print(res.mkString("\n"))
+  res.foreach(println)
 
   def fibonacci(num: Int): Int = num match {
     case 0 => 0
