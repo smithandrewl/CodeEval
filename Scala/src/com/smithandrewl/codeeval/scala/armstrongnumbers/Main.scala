@@ -5,18 +5,14 @@ import scala.annotation.tailrec
 object Main extends App {
 
   def isArmstrong(num: Int): Boolean = {
-    def digits(num: Int): List[Int] = {
 
-      @tailrec
-      def iter(num: Int, acc: List[Int]): List[Int] = num match {
-        case 0 => acc
-        case _ => iter(num / 10, num % 10 :: acc)
-      }
-
-      iter(num, List())
+    @tailrec
+    def digits(num: Int, acc: Vector[Int]): Vector[Int] = num match {
+      case 0 => acc
+      case _ => digits(num / 10, num % 10 +: acc)
     }
 
-    val digs = digits(num)
+    val digs = digits(num, Vector())
     val len = digs.length
 
     digs.map(digit => Math.pow(digit, len)).sum == num
