@@ -10,17 +10,23 @@ object Main extends App {
 
   res.foreach(println)
 
+
   def fibonacci(num: Int): Int = num match {
     case 0 => 0
     case 1 => 1
+    case 2 => 1
     case _ => {
-      if(cache.contains(num)) cache(num)
-      else {
-        val result = fibonacci(num - 1 ) + fibonacci(num - 2)
+      val m = num / 2
+      if (num % 2 == 0) {
+        val first  = fibonacci(m + 1)
+        val second = fibonacci(m - 1)
 
-        cache(num) = result
+        (first * first) - (second * second)
+      } else {
+        val first  = fibonacci(m + 1)
+        val second = fibonacci(m)
 
-        result
+        (first * first) + (second * second)
       }
     }
   }
